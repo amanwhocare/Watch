@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: rgb(3, 3, 53);
+    }
+    .center {
+      margin: 10vh;
+      font-size: 80px;
+      display: flex;
+      justify-content: center;
+      color: rgb(250, 247, 247);
+    }
+    .center-time {
+      margin: 14vh;
+      font-size: 80px;
+      display: flex;
+      justify-content: center;
+      color: rgb(250, 247, 247);
+    }
+    /* .btn {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    button {
+      cursor: pointer;
+      padding: 10px;
+      outline: auto;
+      text-align: center;
+      font-size: x-large;
+      color: white;
+      background-color: unset;
+    } */
+  </style>
+  <body>
+    <header>
+      <div class="center">Timer Today</div>
+    </header>
+    <main>
+      <div class="center-time">
+        <span id="hrs">00</span>
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span>
+      </div>
+      <!-- <div class="btn">
+        <button class="start" onclick="start()">Start</button>
+        <button class="stop" onclick="stop()">Stop</button>
+        <button class="reset" onclick="reset()">Reset</button>
+      </div> -->
+    </main>
+    <script>
+      let hrs = document.getElementById("hrs");
+      let min = document.getElementById("min");
+      let sec = document.getElementById("sec");
+
+      setInterval(() => {
+        let currrentTime = new Date();
+
+        hrs.innerHTML =
+          (currrentTime.getHours() < 10 ? "0" : "") + currrentTime.getHours();
+        min.innerHTML =
+          (currrentTime.getMinutes() < 10 ? "0" : "") +
+          currrentTime.getMinutes();
+
+        sec.innerHTML =
+          (currrentTime.getSeconds() < 10 ? "0" : "") +
+          currrentTime.getSeconds();
+      }, 1000);
+    </script>
+  </body>
+</html>
